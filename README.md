@@ -23,9 +23,15 @@ Projeto de uma aplicação de venda de vinhos com endpoints que permitem o regis
 
 > não se aplica para usuários do PyCharm
 
-Execute o seguinte comando:
+Execute os seguinte comandos:
+
+Adicione o virtual environment se nao existir
     
-    [virtualenv](https://virtualenpython -m venv .v.pypa.io/en/latest/)
+    python -m venv venv
+
+Ative o virtual environment (apenas em Windows)
+
+    .\venv\Scripts\Activate.ps1 
 
 ### 2: Instalar dependencias listadas em 'requirements.txt'
     
@@ -33,25 +39,23 @@ Execute o seguinte comando:
 
 ### 3: Configurar conexao com o banco de dados
 
-altere o valor das variaveis **username** e **password** definindo as credenciais do banco criado
+#### gere um arquivo .env para as suas configurações
 
-no arquivo **/model/\_\_init__.py**
-    
-    url = URL.create(
-        drivername="postgresql",
-        username="",
-        password="",
-        host="localhost",
-        database="winestore",
-        port=5432
-    )
+    cp .env.example .env
+
+#### abra o novo arquivo **/.env** e altere os valores das seguintes variaveis para as suas configurações pessoais
+
+    DB_NAME=winestore
+    DB_USERNAME=
+    DB_PASSWORD=
+    DB_PORT=5432
 
 Caso a porta do banco de dados criado seja diferente de 5432, defina o valor da sua porta 
 
 ### 4: Para executar a API basta executar:
 
 ```
-(env)$ flask run --host 0.0.0.0 --port 5000
+flask run --host 0.0.0.0 --port 5000
 ```
 
 Abra o [http://localhost:5000/#/](http://localhost:5000/#/) no navegador para verificar o status da API e das rotas.
