@@ -16,14 +16,6 @@ class ProductSchema(BaseModel):
     grapes: List[GrapeSchema]
 
 
-class ProductIdSchema(BaseModel):
-    id: str
-
-
-
-class ListProductsSchema(BaseModel):
-    products: List[ProductSchema]
-
 
 def list_products(products: List[Product]):
     result = []

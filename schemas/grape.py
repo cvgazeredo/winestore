@@ -13,15 +13,3 @@ class GrapeSchema(BaseModel):
 class ListGrapesSchema(BaseModel):
     grapes: List[GrapeSchema]
 
-
-def list_grapes(grapes: List[Grape]):
-    result = []
-    for grape in grapes:
-        result.append({
-            "id": grape.id,
-            "name": grape.name
-        })
-
-    return {"grapes": result}
-
-

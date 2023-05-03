@@ -1,7 +1,7 @@
 from typing import Union
 from datetime import datetime
 
-from sqlalchemy import Column, Integer, Float, DateTime, Boolean
+from sqlalchemy import Column, Integer, Float, DateTime, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
 
 from model import Base, Item
@@ -15,6 +15,8 @@ class Order(Base):
     created_at = Column(DateTime, default=datetime.now())
     items = relationship("Item", back_populates="order")
     status = Column(Boolean, default=False)
+    user_id = Column(Integer, ForeignKey("users.id"))
+    user = relationship("User", back_populates="order")
 
     def __init__(self, created_at: Union[DateTime, None] = None):
 

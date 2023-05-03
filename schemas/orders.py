@@ -14,19 +14,14 @@ class OrderSchema(BaseModel):
     created_at: datetime
     items: List[ItemSchema]
 
-class CreateOrderSchema(BaseModel):
-    id: int
-    item: ItemSchema
-
-class ListOrdersSchema(BaseModel):
-    orders: List[OrderSchema]
-
 
 class ItemOrderSchema(BaseModel):
     id: int
 
+
 class OrderBuySchema(BaseModel):
-    id: int
+    order_id: int
+    user_id: int
 
 
 def list_order(order: OrderSchema):

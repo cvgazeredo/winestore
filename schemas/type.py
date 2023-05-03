@@ -11,24 +11,3 @@ class TypeSchema(BaseModel):
     name: str
 
 
-class ListTypesSchema(BaseModel):
-    types: List[TypeSchema]
-
-
-def list_types(types: List[Type]):
-
-    result = []
-    for type in types:
-        result.append({
-            "id": type.id,
-            "name": type.name,
-            "products":  [
-                {
-                    "id": product.id,
-                    "name": product.label
-                } for product in type.products
-            ]
-        })
-
-    return {"types": result}
-
